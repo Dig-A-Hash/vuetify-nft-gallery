@@ -1,0 +1,6 @@
+@use 'vuetify' with (
+  $utilities: false,
+  $color-pack: false,
+  $body-font-family: 'Exo',
+  $font-size-root: 16px
+);

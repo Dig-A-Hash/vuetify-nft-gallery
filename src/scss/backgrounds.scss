@@ -1,0 +1,75 @@
+.backgrounds-purple-trans {
+  background: rgba(95, 0, 64, 0.95);
+}
+.backgrounds-black-trans {
+  background: rgba(0, 0, 0, 0.85);
+}
+.backgrounds-dark-purple {
+  background-color: #0f001a !important;
+}
+.backgrounds-yellow-trans {
+  background: rgba(234, 203, 6, 0.95);
+}
+.backgrounds-green-trans {
+  background: rgba(7, 103, 0, 0.97);
+}
+.backgrounds-blue-trans {
+  background: rgba(0, 72, 181, 0.95);
+}
+.backgrounds-red-trans {
+  background: rgba(118, 0, 0, 0.95);
+}
+.backgrounds-pink-trans {
+  background: rgba(153, 0, 155, 0.95);
+}
+.backgrounds-orange-trans {
+  background: rgba(178, 77, 0, 0.97);
+}
+.backgrounds-purple {
+  background: rgb(53, 0, 47);
+}
+.backgrounds-dark-pink {
+  background: rgb(33, 0, 24);
+}
+.styles-bg-black-shine {
+  background: radial-gradient(
+    circle,
+    rgba(23, 23, 23, 1) 24%,
+    rgba(0, 0, 0, 1) 100%
+  ) !important;
+}
+.styles-bg-blue-sky {
+  background: rgb(9, 123, 199);
+  background: linear-gradient(
+    180deg,
+    rgba(9, 123, 199, 1) 0%,
+    rgba(205, 231, 255, 1) 100%
+  ) !important;
+}
+
+.styles-bg-sunset {
+  background: rgb(5, 38, 93);
+  background: linear-gradient(
+    180deg,
+    rgba(5, 38, 93, 1) 0%,
+    rgba(9, 123, 199, 1) 48%,
+    rgba(255, 255, 226, 1) 92%,
+    rgba(255, 255, 255, 1) 100%
+  ) !important;
+}
+
+.styles-bg-select {
+  background: rgb(5, 38, 93);
+  background: radial-gradient(
+    rgb(67, 72, 81) 0%,
+    rgb(7, 11, 14) 99%
+  ) !important;
+}
+
+.v-application {
+  // background: radial-gradient(
+  //   circle,
+  //   rgb(71, 21, 3) 24%,
+  //   rgba(0, 0, 0, 1) 100%
+  // ) !important;
+}

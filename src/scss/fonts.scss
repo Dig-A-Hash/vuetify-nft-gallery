@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Exo';
+  src: url('/fonts/Exo_2/Exo2-VariableFont_wght.ttf');
+}
+
+.font-exo {
+  font-family: 'Exo' !important;
+}
+
+@font-face {
+  font-family: 'Splash';
+  src: url('/fonts/Splash/Splash-Regular.ttf');
+}
+.font-splash {
+  font-family: 'Splash' !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6,
+.text-body-1,
+.text-body-2,
+.text-subtitle-1,
+.text-subtitle-2,
+.text-button,
+.text-caption,
+.text-overline {
+  // font-family: 'Exo' !important;
+}
+
+body {
+  letter-spacing: 1px !important;
+  color: black !important;
+  font-family: 'Exo' !important;
+}
