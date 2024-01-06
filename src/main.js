@@ -5,16 +5,30 @@
  */
 
 // Components
-import App from './App.vue'
+import App from './App.vue';
 
 // Composables
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 
 // Plugins
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from '@/plugins';
+import * as dateUtils from './modules/dateUtils';
 
-const app = createApp(App)
+// SCSS
+import './scss/site.scss';
+import './scss/cursors.scss';
+import './scss/variables.scss';
+import './scss/fonts.scss';
+import './scss/borders.scss';
+import './scss/backgrounds.scss';
+import './scss/navbar.scss';
+import './scss/vuetify-overrides.scss';
 
-registerPlugins(app)
+const app = createApp(App);
 
-app.mount('#app')
+// Make dateUtils globally available
+app.config.globalProperties.$dateUtils = dateUtils;
+
+registerPlugins(app);
+
+app.mount('#app');

@@ -40,18 +40,21 @@ function metaDataBaseUrl(walletPublicKey, chainId, contractAddress) {
 
 /**
  * Defines the nftStore.
+ * NFTs are kept in at least one array per contract, so all items
+ * in itemCollections can be named arbitrarily, but you will need
+ * to reference them properly in the app.
  */
 export const useNftStore = defineStore('nftStore', {
   state: () => ({
     itemCollections: {
-      stephen: {
+      nftSmartContract1: {
         items: [],
         itemCount: 0, // Total number of items.
         page: 1,
       },
-      stephenRecent: {
+      nftSmartContract2: {
         items: [],
-        itemCount: 0, // Total number of items.
+        itemCount: 0,
         page: 1,
       }
     }
