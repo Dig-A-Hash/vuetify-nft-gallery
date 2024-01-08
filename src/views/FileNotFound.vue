@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import siteFooter from '@/components/Footer.vue';
+import siteFooter from '@/components/site-footer.vue';
 </script>
