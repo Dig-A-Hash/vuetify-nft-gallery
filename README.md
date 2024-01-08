@@ -1,13 +1,23 @@
 # Vuetify NFT Gallery
 
-This is a Web Front-End written with [Vue 3](https://vuejs.org/guide/introduction.html) and [Vuetify](https://dev.vuetifyjs.com/en/introduction/why-vuetify/#what-is-vuetify3f). There are several other re-usable resources included like [Pinia](https://pinia.vuejs.org/introduction.html) stores, [components](https://vuejs.org/guide/components/registration.html), and [composables](https://vuejs.org/guide/extras/composition-api-faq.html) that can be used to call any EVM based blockchain for NFTs using [Ethers.js](https://github.com/ethers-io/ethers.js), even if the browser does not have a wallet installed. See the following files for more info...
+This is a Web Front-End written with [Vue 3](https://vuejs.org/guide/introduction.html) and [Vuetify](https://dev.vuetifyjs.com/en/introduction/why-vuetify/#what-is-vuetify3f).
+
+You can see examples of how it works on the following websites where this project is in production use...
+
+https://www.thistleandthorntattoo.net/
+
+https://www.pour-house-studios.com/
+
+This project has a .env file that is setup to work with Dig-A-Hash web services for Dynamic NFT Meta-Data.
+
+https://www.dig-a-hash.com/
+
+There are several other re-usable resources included like [Pinia](https://pinia.vuejs.org/introduction.html) stores, [components](https://vuejs.org/guide/components/registration.html), and [composables](https://vuejs.org/guide/extras/composition-api-faq.html) that can be used to call any EVM based blockchain for NFTs using [Ethers.js](https://github.com/ethers-io/ethers.js), even if the browser does not have a wallet installed. See the following files for more info...
 
 ```
 ./src/composables/
 ./src/store/nft.js
 ```
-
-This project has a .env file that is setup to work with Dig-A-Hash web services for Dynamic NFT Meta-Data.
 
 There is also a 404 route built-in using the [Vue Router](https://router.vuejs.org/guide/).
 
