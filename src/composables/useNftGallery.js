@@ -33,7 +33,7 @@ export function useNftGallery(walletPublicKey, contractAddress, abi, chainId, et
   onMounted(async () => {
     const { getNfts } = await useBlockchain(
       parseInt(itemsPerPage),
-      new ethers.providers.JsonRpcProvider(ethersProviderUrl),
+      new ethers.JsonRpcProvider(ethersProviderUrl),
       null,
       walletPublicKey,
       contractAddress,

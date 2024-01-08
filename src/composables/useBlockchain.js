@@ -86,11 +86,11 @@ export async function useBlockchain(
       // Get Contract NFT balance for the specified wallet.
       publicKey = publicKey.toLowerCase();
       balance = await contract.balanceOf(publicKey);
-      balance = balance.toNumber();
+      balance = Number(balance);
     } else {
       // Get Contract NFT balance for the entire contract.
       balance = await contract.totalSupply();
-      balance = balance.toNumber();
+      balance = Number(balance);
     }
 
     // Calculate the last page.
@@ -127,7 +127,7 @@ export async function useBlockchain(
         batchedTokenIdPromises.push(
           contract.tokenOfOwnerByIndex(publicKey, i - 1).then(tokenId => (
             {
-              tokenId: tokenId.toNumber(),
+              tokenId: Number(tokenId),
               owner: publicKey
             })).catch(error => {
               console.error(`Error fetching token at index ${i}:`, error);
