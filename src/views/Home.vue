@@ -112,7 +112,7 @@
 </template>
 
 <script setup>
-import foot from '@/components/Footer.vue';
+import foot from '@/components/site-footer.vue';
 import dialogNft from '@/components/dialog-nft.vue';
 
 import { useDialogNft } from '@/composables/useDialogNft';
