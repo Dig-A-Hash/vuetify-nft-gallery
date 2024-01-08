@@ -1,67 +1,105 @@
 <template>
-  <v-container fluid class="ma-0">
+  <v-sheet class="bg-grey-darken-4">
+    <v-container fluid class="ma-0 border-top-grey border-bottom-grey">
+      <v-row>
+        <v-col cols="12" sm="6" class="d-flex justify-start align-center">
+          <v-avatar
+            class="mr-4"
+            size="64"
+            color="grey-darken-1"
+            variant="outlined"
+          >
+            <v-icon>mdi-star</v-icon>
+          </v-avatar>
+          <div>
+            <div class="text-h6 mb-0">Stephen Anderson's NFT Portfolio</div>
+            <div class="mt-n1">
+              This is a demo of the NFT Viewer for Vuetify. Change out the
+              contract address and Chain ID to display your own NFTs.
+            </div>
+          </div>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+          class="d-flex justify-center justify-sm-end align-center"
+        >
+          <div>
+            Viewing
+            <v-chip class="mr-1">{{
+              page === 1 ? '1' : (page - 1) * nftStore.pageSize + 1
+            }}</v-chip>
+            -
+            <v-chip class="mr-1">{{
+              page * nftStore.pageSize >
+              nftStore.itemCollections[nftStoreCollectionName].itemCount
+                ? nftStore.itemCollections[nftStoreCollectionName].itemCount
+                : page * nftStore.pageSize
+            }}</v-chip>
+            of
+            <v-chip class="mr-1">{{
+              nftStore.itemCollections[nftStoreCollectionName].itemCount
+            }}</v-chip>
+
+            <v-btn
+              size="small"
+              :icon="isAscending ? 'mdi-arrow-down' : 'mdi-arrow-up'"
+              class="ml-2"
+              color="success"
+              variant="icon"
+              :title="`Change Sort Order to ${
+                isAscending ? '(Descending)' : '(Descending)'
+              }`"
+              @click="onChangeSortOrder"
+            ></v-btn>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-sheet>
+  <v-container fluid class="ma-0 pt-2 px-2 bg-black">
     <v-row dense>
-      <v-col class="" cols="12">
+      <v-col
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+        xl="2"
+        v-for="(nft, index) in nfts"
+        :key="nft.tokenId"
+      >
         <v-card
           height="100%"
-          class="border-pink"
-          color="pink-accent-2"
-          variant="tonal"
+          width="100%"
+          class="bg-transparent"
+          @click="selectNft(nft)"
+          variant="outlined"
+          color="grey"
         >
-          <div class="text-h5 d-flex align-center mb-2 bg-pink-accent-4 pa-4">
-            <v-icon class="mr-2">mdi-new-box</v-icon>Latest Tattoos
-            <v-spacer></v-spacer>
-            <v-btn variant="outlined">See All</v-btn>
-          </div>
-          <div class="px-2">
-            <div class="text-center mb-8" v-if="nfts.length <= 0">
-              <div class="mt-16 mb-6 d-flex justify-center">
-                <v-progress-circular
-                  :size="100"
-                  :width="12"
-                  color="pink-accent-4"
-                  indeterminate
-                ></v-progress-circular>
+          <v-img
+            :src="nftStore.getImageLarge(nft.metaData)"
+            cover
+            height="100%"
+          >
+            <div
+              class="bg-grey-darken-4 pa-4 border-bottom-grey d-flex align-center"
+            >
+              <div class="text-h6 text-pink-lighten-4">
+                {{ nft.metaData.name }}
               </div>
-              Connecting to Blockchain...
-            </div>
-            <v-list class="bg-transparent" v-if="nfts.length > 0">
-              <v-list-item
-                v-for="(nft, index) in nfts"
-                :key="nft.tokenId"
-                @click="selectNft(nft)"
-                variant="tonal"
-                class="navbar-item-color ml-2 mr-2 navbar-item-margin mb-2"
-                active-class="navbar-item-color-active"
-                rounded="lg"
+              <v-spacer></v-spacer>
+
+              <v-icon size="large" color="purple-lighten-2"
+                >mdi-open-in-app</v-icon
               >
-                <div class="d-flex align-center pa-2">
-                  <v-avatar
-                    size="95"
-                    color="text-grey-lighten-2"
-                    variant="outlined"
-                    class="mr-6"
-                  >
-                    <v-img
-                      :src="nftStore.getImageMedium(nft.metaData)"
-                      cover
-                    ></v-img>
-                  </v-avatar>
-                  <div class="text-pink-lighten-4">
-                    <div class="text-h6">{{ nft.metaData.name }}</div>
-                    <div>
-                      {{ formatDate(nftStore.getDateAdded(nft.metaData)) }}
-                    </div>
-                  </div>
-                </div>
-              </v-list-item>
-            </v-list>
-          </div>
+            </div>
+          </v-img>
         </v-card>
       </v-col>
     </v-row>
     <foot></foot>
   </v-container>
+
   <dialog-nft
     :is-showing="isNftDialogShowing"
     :nft="selectedNft"
@@ -89,7 +127,7 @@ import { dahDemoV1Abi } from '@/modules/dahDemoV1Abi';
 const walletPublicKey = import.meta.env.VITE_ART_WALLET_STEPHEN;
 const contractAddress = import.meta.env.VITE_ART_CONTRACT_STEPHEN;
 const chainId = blockchains.fantom.chainId;
-const itemsPerPage = 3;
+const itemsPerPage = 25;
 const nftStoreCollectionName = 'nftSmartContract1';
 
 const nftStore = useNftStore();
@@ -111,7 +149,7 @@ const { page, numberOfPages, nfts, isAscending, onChangeSortOrder } =
     chainId,
     blockchains.fantom.publicRpc,
     itemsPerPage,
-    true,
+    false,
     nftStoreCollectionName,
     false
   );

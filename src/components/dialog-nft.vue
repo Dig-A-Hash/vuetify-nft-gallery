@@ -20,7 +20,7 @@
 
           <v-btn @click="onToggleIsShowing" variant="text" title="Back to Home">
             <!-- <img height="40" src="/img/logo-icon.png" /> -->
-            <span class="text-h6 font-frederick ml-1">Tattoo Viewer</span>
+            <span class="text-h6 font-frederick ml-1">NFT Viewer</span>
           </v-btn>
         </v-toolbar-items>
 
@@ -85,7 +85,6 @@
                   @click="onZoomOut"
                 ></v-btn>
               </div>
-              <v-divider class="my-4"></v-divider>
               <div class="text-h6 text-pink-accent-2 mt-4">Description</div>
               {{ props.nft.metaData.description }}
             </v-col>
@@ -316,15 +315,6 @@
                     / 25
                   </v-chip>
                 </div>
-              </div>
-              <div class="mt-4 text-center">
-                <v-btn
-                  variant="tonal"
-                  prepend-icon="mdi-account-voice"
-                  to="/pain"
-                >
-                  Pain Estimator
-                </v-btn>
               </div>
             </v-col>
           </v-row>
