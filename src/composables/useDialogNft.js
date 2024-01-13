@@ -43,7 +43,7 @@ export function useDialogNft(walletPublicKey,
     if (hasTokenId.value) {
       const { getTokenMetaData } = await useBlockchain(
         itemsPerPage,
-        new ethers.providers.JsonRpcProvider(blockchains.fantom.publicRpc),
+        new ethers.JsonRpcProvider(blockchains.fantom.publicRpc),
         walletPublicKey,
         walletPublicKey,
         contractAddress,
