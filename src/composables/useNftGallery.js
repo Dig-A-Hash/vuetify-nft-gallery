@@ -65,7 +65,6 @@ export function useNftGallery(walletPublicKey, contractAddress, abi, chainId, et
     // Skip fetching NFTs if we already have them.
     if (nftStore.itemCollections[nftStoreItemCollectionName].items[iPage - 1]) {
       nfts.value = nftStore.itemCollections[nftStoreItemCollectionName].items[iPage - 1];
-      numberOfPages.value = nftStore.itemCollections[nftStoreItemCollectionName].page;
       return;
     }
 
@@ -77,6 +76,8 @@ export function useNftGallery(walletPublicKey, contractAddress, abi, chainId, et
       nfts.value = tokens;
       nftStore.setCollectionItems(iPage, tokens, nftStoreItemCollectionName);
       nftStore.itemCollections[nftStoreItemCollectionName].page = Math.ceil(count / pageSize);
+      numberOfPages.value = nftStore.itemCollections[nftStoreItemCollectionName].page;
+
       nftStore.itemCollections[nftStoreItemCollectionName].itemCount = count;
       globalMessageDialogStore.hideProgressSpinner();
     } catch (error) {
@@ -90,6 +91,6 @@ export function useNftGallery(walletPublicKey, contractAddress, abi, chainId, et
     numberOfPages,
     nfts,
     isAscending,
-    onChangeSortOrder,
+    onChangeSortOrder
   };
 }
