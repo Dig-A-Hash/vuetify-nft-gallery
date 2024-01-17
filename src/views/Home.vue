@@ -97,6 +97,15 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row class="mt-6">
+      <v-col>
+        <v-pagination
+          v-model="page"
+          :length="numberOfPages"
+          rounded="circle"
+        ></v-pagination>
+      </v-col>
+    </v-row>
     <foot></foot>
   </v-container>
 
@@ -127,7 +136,7 @@ import { dahDemoV1Abi } from '@/modules/dahDemoV1Abi';
 const walletPublicKey = import.meta.env.VITE_ART_WALLET_STEPHEN;
 const contractAddress = import.meta.env.VITE_ART_CONTRACT_STEPHEN;
 const chainId = blockchains.fantom.chainId;
-const itemsPerPage = 25;
+const itemsPerPage = 24;
 const nftStoreCollectionName = 'nftSmartContract1';
 
 const nftStore = useNftStore();
@@ -151,6 +160,6 @@ const { page, numberOfPages, nfts, isAscending, onChangeSortOrder } =
     itemsPerPage,
     false,
     nftStoreCollectionName,
-    false
+    true
   );
 </script>
