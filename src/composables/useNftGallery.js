@@ -65,6 +65,7 @@ export function useNftGallery(walletPublicKey, contractAddress, abi, chainId, et
     // Skip fetching NFTs if we already have them.
     if (nftStore.itemCollections[nftStoreItemCollectionName].items[iPage - 1]) {
       nfts.value = nftStore.itemCollections[nftStoreItemCollectionName].items[iPage - 1];
+      numberOfPages.value = nftStore.itemCollections[nftStoreItemCollectionName].page;
       return;
     }
 
