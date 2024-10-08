@@ -1,13 +1,14 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { ethers } from 'ethers';
-import { blockchains, useBlockchain } from '@/composables/useBlockchain';
+import { useEvmNft } from 'vue-evm-nft';
 
-export function useDialogNft(walletPublicKey,
+export function useDialogNft(
+  contractPublicKey,
   contractAddress,
   abi,
   chainId,
-  itemsPerPage) {
+  itemsPerPage
+) {
   const isNftDialogShowing = ref(false);
   const selectedNft = ref(null);
   const route = useRoute();
@@ -41,11 +42,11 @@ export function useDialogNft(walletPublicKey,
 
   onMounted(async () => {
     if (hasTokenId.value) {
-      const { getTokenMetaData } = await useBlockchain(
+      const { getTokenMetaData } = await useEvmNft(
         itemsPerPage,
-        new ethers.JsonRpcProvider(blockchains.fantom.publicRpc),
-        walletPublicKey,
-        walletPublicKey,
+        null,
+        null,
+        contractPublicKey,
         contractAddress,
         abi,
         chainId
@@ -63,6 +64,6 @@ export function useDialogNft(walletPublicKey,
     selectNft,
     hasTokenId,
     tokenId,
-    selectedNft
+    selectedNft,
   };
 }

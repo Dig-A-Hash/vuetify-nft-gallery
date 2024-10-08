@@ -86,235 +86,24 @@
                 ></v-btn>
               </div>
               <div class="text-h6 text-pink-accent-2 mt-4">Description</div>
-              {{ props.nft.metaData.description }}
+              <div
+                v-html="props.nft.metaData.description.replace(/\n/g, '<br />')"
+              ></div>
             </v-col>
             <v-col cols="12" md="4" class="">
               <div class="text-h6 text-pink-accent-2">Name</div>
               <p>{{ props.nft.metaData.name }}</p>
               <v-divider class="my-4"></v-divider>
-
-              <div v-if="nftStore.getOwner(props.nft.metaData)">
-                <div class="text-h6 text-pink-accent-2">Owner Initials</div>
-                <p class="mb-4">
-                  {{ nftStore.getOwner(props.nft.metaData) }}
-                </p>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getDateAdded(props.nft.metaData)">
-                <div class="text-h6 text-pink-accent-2">Tattoo Completed</div>
-                <p class="mb-4">
-                  {{ formatDate(nftStore.getDateTaken(props.nft.metaData)) }}
-                </p>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getDateAdded(props.nft.metaData)">
-                <div class="text-h6 text-pink-accent-2">Added to Website</div>
-                <p class="mb-4">
-                  {{ formatDate(nftStore.getDateAdded(props.nft.metaData)) }}
-                </p>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getSessionNumber(props.nft.metaData)">
-                <div class="text-h6 text-pink-accent-2">Session Number</div>
-                <p class="mb-4">
-                  {{ nftStore.getSessionNumber(props.nft.metaData) }}
-                </p>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getStyle(props.nft.metaData)">
-                <div class="d-flex align-center">
-                  <div>
-                    <div class="text-h6 text-pink-accent-2">Style</div>
-                    <div class="d-flex align-center">
-                      <p class="mr-2">
-                        {{ nftStore.getStyle(props.nft.metaData) }}
-                      </p>
-                    </div>
+              <div v-for="(item, index) in props.nft.metaData.attributes">
+                <template v-if="item.trait_type.toLowerCase() !== 'price'">
+                  <div class="text-h6 text-pink-accent-2">
+                    {{ item.trait_type }}
                   </div>
-                  <v-spacer></v-spacer>
-                  <v-chip size="x-large" color="amber">{{
-                    nftStore.getStyleId(props.nft.metaData)
-                  }}</v-chip>
-                </div>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getBodyLocationId(props.nft.metaData)">
-                <div class="text-h6 text-pink-accent-2">Location</div>
-                <div>
-                  <div class="mb-2 d-flex align-center">
-                    <div>
-                      {{
-                        getBodyLocationById(
-                          nftStore.getBodyLocationId(props.nft.metaData)
-                        )
-                      }}
-                    </div>
-                    <v-spacer></v-spacer>
-                    Male
-                    <v-chip
-                      size="x-large"
-                      color="light-blue-accent-1"
-                      class="ml-2"
-                      >{{
-                        getBodyLocationPainPointsMale(
-                          nftStore.getBodyLocationId(props.nft.metaData)
-                        )
-                      }}</v-chip
-                    >
-                  </div>
-
-                  <div>
-                    <div class="mb-2 d-flex align-center">
-                      <v-spacer></v-spacer>
-                      Female
-                      <v-chip
-                        size="x-large"
-                        color="pink-accent-1"
-                        class="ml-2"
-                        >{{
-                          getBodyLocationPainPointsFemale(
-                            nftStore.getBodyLocationId(props.nft.metaData)
-                          )
-                        }}</v-chip
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <v-divider class="my-4"></v-divider>
-
-              <div v-if="nftStore.getSizeId(props.nft.metaData)">
-                <div class="d-flex align-center">
-                  <div>
-                    <div class="text-h6 text-pink-accent-2">Size</div>
-                    <div class="d-flex align-center">
-                      <p class="mr-2">
-                        {{
-                          getSizeById(nftStore.getSizeId(props.nft.metaData))
-                        }}
-                      </p>
-                    </div>
-                  </div>
-                  <v-spacer></v-spacer>
-                  <v-chip size="x-large" color="amber">{{
-                    nftStore.getSizeId(props.nft.metaData)
-                  }}</v-chip>
-                </div>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getSessionHours(props.nft.metaData)">
-                <div class="d-flex align-center">
-                  <div>
-                    <div class="text-h6 text-pink-accent-2">Session Hours</div>
-                    <div class="d-flex align-center">
-                      <p class="mr-2">
-                        {{ nftStore.getSessionHours(props.nft.metaData) }}
-                      </p>
-                    </div>
-                  </div>
-                  <v-spacer></v-spacer>
-                  <v-chip size="x-large" color="amber">{{
-                    nftStore.getSessionHours(props.nft.metaData)
-                  }}</v-chip>
-                </div>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div v-if="nftStore.getHealingTypeId(props.nft.metaData)">
-                <div class="d-flex align-center">
-                  <div>
-                    <div class="text-h6 text-pink-accent-2">Healing Type</div>
-                    <div class="d-flex align-center">
-                      <p class="mr-2">
-                        {{
-                          getHealingById(
-                            nftStore.getHealingTypeId(props.nft.metaData)
-                          )
-                        }}
-                      </p>
-                    </div>
-                  </div>
-                  <v-spacer></v-spacer>
-                  <v-chip size="x-large" color="amber">{{
-                    nftStore.getHealingTypeId(props.nft.metaData)
-                  }}</v-chip>
-                </div>
-                <v-divider class="my-4"></v-divider>
-              </div>
-
-              <div>
-                <div class="text-h6 text-pink-accent-2">Pain Estimate</div>
-
-                <div class="mr-2 mb-2 d-flex align-center">
-                  {{
-                    calculatePainEstimate(
-                      nftStore.getStyleId(props.nft.metaData),
-                      nftStore.getBodyLocationId(props.nft.metaData),
-                      nftStore.getSizeId(props.nft.metaData),
-                      nftStore.getSessionHours(props.nft.metaData),
-                      nftStore.getHealingTypeId(props.nft.metaData),
-                      true
-                    )
-                  }}
-                  <v-spacer></v-spacer>
-                  Male
-                  <v-chip
-                    class="ml-2"
-                    size="x-large"
-                    variant="tonal"
-                    color="light-blue-accent-1"
-                  >
-                    {{
-                      sumPainPoints(
-                        nftStore.getStyleId(props.nft.metaData),
-                        nftStore.getBodyLocationId(props.nft.metaData),
-                        nftStore.getSizeId(props.nft.metaData),
-                        nftStore.getSessionHours(props.nft.metaData),
-                        nftStore.getHealingTypeId(props.nft.metaData),
-                        true
-                      )
-                    }}
-                    / 25
-                  </v-chip>
-                </div>
-                <div class="mr-2 d-flex align-center">
-                  {{
-                    calculatePainEstimate(
-                      nftStore.getStyleId(props.nft.metaData),
-                      nftStore.getBodyLocationId(props.nft.metaData),
-                      nftStore.getSizeId(props.nft.metaData),
-                      nftStore.getSessionHours(props.nft.metaData),
-                      nftStore.getHealingTypeId(props.nft.metaData),
-                      false
-                    )
-                  }}
-                  <v-spacer></v-spacer>
-                  Female
-                  <v-chip
-                    size="x-large"
-                    variant="tonal"
-                    color="pink-accent-1"
-                    class="ml-2"
-                  >
-                    {{
-                      sumPainPoints(
-                        nftStore.getStyleId(props.nft.metaData),
-                        nftStore.getBodyLocationId(props.nft.metaData),
-                        nftStore.getSizeId(props.nft.metaData),
-                        nftStore.getSessionHours(props.nft.metaData),
-                        nftStore.getHealingTypeId(props.nft.metaData),
-                        false
-                      )
-                    }}
-                    / 25
-                  </v-chip>
-                </div>
+                  <p class="mb-4">
+                    {{ item.value }}
+                  </p>
+                  <v-divider class="my-4"></v-divider>
+                </template>
               </div>
             </v-col>
           </v-row>
@@ -377,7 +166,7 @@
                   rounded="lg"
                   target="_new"
                   :href="
-                    nftStore.metaDataUrl(
+                    nftHelperStore.metaDataUrl(
                       props.nft.tokenId,
                       props.walletPublicKey,
                       props.chainId,
@@ -467,21 +256,14 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue';
 import VueQrcode from '@chenfengyuan/vue-qrcode';
-import { usePainEstimator } from '@/composables/usePainEstimator';
 import { formatDate } from '@/modules/dateUtils';
 
-import { useNftStore } from '@/store/nft';
+import { useNftStore } from 'vue-evm-nft';
+import { useNftHelperStore } from '@/store/nftHelperStore';
 
 const nftStore = useNftStore();
-const {
-  calculatePainEstimate,
-  sumPainPoints,
-  getBodyLocationById,
-  getBodyLocationPainPointsMale,
-  getBodyLocationPainPointsFemale,
-  getSizeById,
-  getHealingById,
-} = usePainEstimator();
+const nftHelperStore = useNftHelperStore();
+
 const zoomLevel = ref(1);
 const zoomIncrement = 0.2;
 const maxZoom = 3;
@@ -518,7 +300,10 @@ const props = defineProps({
 const emit = defineEmits(['toggleShowing']);
 
 const nftUrl = computed(() => {
-  return nftStore.nftUrl(props.nft?.tokenId || -1, props.artistNameGalleryPath);
+  return nftHelperStore.nftUrl(
+    props.nft?.tokenId || -1,
+    props.artistNameGalleryPath
+  );
 });
 
 onMounted(async () => {});
