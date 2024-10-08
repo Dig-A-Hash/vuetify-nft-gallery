@@ -1,18 +1,19 @@
 # Vuetify NFT Gallery
+This is a Web Front-End written with [Vue 3](https://vuejs.org/guide/introduction.html) and [Vuetify](https://dev.vuetifyjs.com/en/introduction/why-vuetify/#what-is-vuetify3f). This demo shows you how to implement the [vue-evm-nft](https://github.com/Dig-A-Hash/vue-evm-nft/tree/main) package to display NFTs in the web browser, directly from the blockchain. No API needed, no wallet needed.
 
 ![](https://i.imgur.com/QVlMJcM.jpg)
 
-This is a Web Front-End written with [Vue 3](https://vuejs.org/guide/introduction.html) and [Vuetify](https://dev.vuetifyjs.com/en/introduction/why-vuetify/#what-is-vuetify3f). This demo shows you how to implement the [vue-evm-nft](https://github.com/Dig-A-Hash/vue-evm-nft/tree/main) package ti display NFTs in the web browser, directly from the blockchain. No API needed, no wallet needed.
+There are several re-usable resources included like [Pinia](https://pinia.vuejs.org/introduction.html) stores, [components](https://vuejs.org/guide/components/registration.html), and [composables](https://vuejs.org/guide/extras/composition-api-faq.html) that can be used to call any EVM based blockchain for NFTs using [Ethers.js](https://github.com/ethers-io/ethers.js). Even a 404 route built-in using the [Vue Router](https://router.vuejs.org/guide/).
 
 You can see examples of how it works on the following websites where this project is in production use...
 
 https://www.thistleandthorntattoo.net/
 
+https://www.urbanhomesteadx.com/
+
+https://www.dog-plex.com/
+
 https://www.pour-house-studios.com/
-
-There are several other re-usable resources included like [Pinia](https://pinia.vuejs.org/introduction.html) stores, [components](https://vuejs.org/guide/components/registration.html), and [composables](https://vuejs.org/guide/extras/composition-api-faq.html) that can be used to call any EVM based blockchain for NFTs using [Ethers.js](https://github.com/ethers-io/ethers.js).
-
-There is also a 404 route built-in using the [Vue Router](https://router.vuejs.org/guide/).
 
 ## CSS Notes
 
@@ -33,7 +34,7 @@ This project also ships with Vercel support for SPA applications, and a GitHub W
 ```
 
 ## Project setup
-
+Clone this project then run...
 ```
 npm install
 
