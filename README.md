@@ -34,10 +34,9 @@ This project also ships with Vercel support for SPA applications, and a GitHub W
 ```
 
 ## Project setup
-Clone this project then run...
+Install the latest version of [Node.js](https://nodejs.org/en/learn/getting-started/how-to-install-nodejs), then clone this project and run...
 ```
 npm install
-
 ```
 
 ### Compiles and hot-reloads for development
