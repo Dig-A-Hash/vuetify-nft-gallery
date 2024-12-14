@@ -35,12 +35,6 @@
         <a href="https://www.dog-plex.com/" target="_new">
           <v-img src="/img/customers/dog-plex-logo.png" width="100"> </v-img>
         </a>
-        <a href="https://www.thistleandthorntattoo.net/" target="_new">
-          <v-img
-            src="/img/customers/thistle-and-thorn-tattoo.jpg"
-            width="100"
-          ></v-img>
-        </a>
         <a href="https://www.urbanhomesteadx.com/" target="_new">
           <v-img src="/img/customers/urban-homestead-x.png" width="100"></v-img>
         </a>
