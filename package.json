@@ -1,6 +1,6 @@
 {
   "name": "vuetify-nft-gallery",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "start": "vite",
     "build": "vite build",
@@ -16,7 +16,7 @@
     "pinia": "^2.2.4",
     "qrcode": "^1.5.3",
     "vue": "^3.5.11",
-    "vue-evm-nft": "^1.0.3",
+    "vue-evm-nft": "^1.1.0",
     "vue-router": "^4.4.5",
     "vuetify": "^3.7.1",
     "webfontloader": "^1.0.0"
