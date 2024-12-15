@@ -89,7 +89,7 @@
               :title="`Change Sort Order to ${
                 isAscending ? '(Descending)' : '(Ascending)'
               }`"
-              @click="onToggleSortOrder"
+              @click="toggleSortOrder"
             ></v-btn>
           </div>
         </v-col>
@@ -219,7 +219,7 @@ const {
   isLoading,
   nftLoadingMessage,
   isAscending,
-  onToggleSortOrder,
+  toggleSortOrder,
 } = useEvmNftGallery(
   contractPublicKey,
   contractAddress,
