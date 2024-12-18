@@ -15,7 +15,9 @@
         max-width="600"
         rounded="xl"
       >
-        <h1 class="text-h5 sm-text-h2 text-orange">Vuetify NFT Gallery</h1>
+        <h1 class="text-h5 sm-text-h2 text-orange">
+          Vuetify NFT Gallery JavaScript v{{ pkgJson.version }}
+        </h1>
 
         <p class="text-body-1 mt-2 text-left">
           This is a demo of how to display NFTs by implementing the vue-evm-nft
@@ -187,6 +189,7 @@
 </template>
 
 <script setup>
+import pkgJson from '../../package.json';
 import { watch } from 'vue';
 import dialogNft from '@/components/dialog-nft.vue';
 import { useDialogNft } from '@/composables/useDialogNft';

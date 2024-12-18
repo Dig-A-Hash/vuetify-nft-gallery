@@ -1,5 +1,5 @@
 # Vuetify NFT Gallery
-This is a Web Front-End written with [Vue 3](https://vuejs.org/guide/introduction.html) and [Vuetify](https://dev.vuetifyjs.com/en/introduction/why-vuetify/#what-is-vuetify3f). This demo shows you how to implement the [vue-evm-nft](https://github.com/Dig-A-Hash/vue-evm-nft/tree/main) package to display NFTs in the web browser, directly from the blockchain. No API needed, no wallet needed.
+This is a Web Front-End written with [Vue 3](https://vuejs.org/guide/introduction.html) and [Vuetify](https://dev.vuetifyjs.com/en/introduction/why-vuetify/#what-is-vuetify3f) in pure JavaScript. This demo shows you how to implement the [vue-evm-nft](https://github.com/Dig-A-Hash/vue-evm-nft/tree/main) package to display NFTs in the web browser, directly from the blockchain. No API needed, no wallet needed.
 
 ![](https://i.imgur.com/QVlMJcM.jpg)
 
