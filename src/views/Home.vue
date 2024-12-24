@@ -45,7 +45,7 @@
         </a>
       </div>
     </div>
-    <div class="text-h3 mb-4">vue-evm-nft Demo</div>
+    <div class="text-h4 mb-4">vue-evm-nft JavaScript Demo</div>
     <v-container
       fluid
       class="ma-0 border-top-grey border-bottom-grey bg-blue-darken-4"
@@ -223,17 +223,17 @@ const {
   nftLoadingMessage,
   isAscending,
   toggleSortOrder,
-} = useEvmNftGallery(
+} = useEvmNftGallery({
   contractPublicKey,
   contractAddress,
   abi,
   chainId,
-  null,
-  blockchains.avalanche.publicRpc,
+  holderPublicKey: null,
+  rpc: blockchains.avalanche.publicRpc,
   itemsPerPage,
   nftStoreItemCollectionName,
-  false
-);
+  isAscendingSort: false,
+});
 
 watch(isLoading, (newValue) => {
   if (newValue === true) {
